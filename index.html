@@ -1,0 +1,710 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600|Open+Sans:400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/spur.css">
+    <title>Hooli | documentacion </title>
+</head>
+
+<body>
+    <div class="dash">
+        <div class="dash-nav dash-nav-dark">
+            <header>
+                <a href="#!" class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </a>
+                <a href="index.html" class="spur-logo"> <img src="img/hooli.png" height="50px"> </a>
+            </header>
+            <nav class="dash-nav-list">
+                <div class="dash-nav-dropdown">
+                    <a href="#" class="dash-nav-item dash-nav-dropdown-toggle">
+                        <i class="fas fa-file"></i> Documentación </a>
+                    <div class="dash-nav-dropdown-menu">
+                        <a href="#Introduccion" class="dash-nav-dropdown-item">Introduccion</a>
+                        <a href="#Registro" class="dash-nav-dropdown-item">Registro</a>
+                        <a href="#Login" class="dash-nav-dropdown-item">Inicio de sesion</a>
+                        <a href="#Autentificacion" class="dash-nav-dropdown-item">Autentificacion</a>
+                        <a href="#RegistroC" class="dash-nav-dropdown-item">Registro de cartas</a>
+                        <a href="#Consulta" class="dash-nav-dropdown-item">Consultar carta</a>
+                        <a href="#Busqueda" class="dash-nav-dropdown-item">Buscar cartas</a>
+                        <a href="#Inventario" class="dash-nav-dropdown-item">Inventario</a>
+                        <a href="#Datos" class="dash-nav-dropdown-item">Mis datos</a>
+                        <a href="#Compra" class="dash-nav-dropdown-item">Compra</a>
+                        <a href="#Compras" class="dash-nav-dropdown-item">Compras</a>
+                        <a href="#Ventas" class="dash-nav-dropdown-item">Ventas</a>
+                        <a href="#Actualizar" class="dash-nav-dropdown-item">Actualizacion</a>
+                        <a href="#Eliminar" class="dash-nav-dropdown-item">Borrar carta</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="dash-app">
+            <header class="dash-toolbar">
+                <a href="#!" class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </a>
+                <div class="tools">
+                    <a href="https://github.com/nightbuee/hooli-APIREST" target="_blank" class="tools-item">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </header>
+            <main class="dash-content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xl-10">
+                            <h1 class="dash-title">API Documentación</h1>
+                            <hr>
+                            <h3 id="Introduccion" class="content-anchor">Introducción</h3>
+                            <p>Hooli es una API <strong> JSON </strong> basa en <strong>REST</strong>. Proporciona funcionalidad para un sitio de <strong>venta de cartas coleccionables</strong> por medio de solicitudes de <strong>HTTP</strong>. Esta documentación describe todas las acciones que puedes realizar así como sus parámetros, envíos, salidas y métodos de autentificación.</p>
+                            <h3 id="Autentificacion" class="content-anchor">Autentificacion</h3>
+                            <p>Para poder hacer uso de la API de Hooli necesitas tener un <strong> token</strong>, la autentificación  es <strong> Key Based </strong> por lo tanto al momento de hacer las peticiones con los <strong>verbos HTTP</strong> tienes que enviar el token dentro del <strong>header</strong> en la petición en una variable llamada <strong> Authorization</strong> como se muestra a continuación.</p>
+                            <div class="col-lg-12">
+                                <div class="card spur-card">
+                                    <div class="card-header"><div class="spur-card-title">Header</div></div>
+                                    <div class="card-body ">
+                                        <table class="table table-in-card">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">key</th>
+                                                    <th scope="col">value</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">Authorization*</th>
+                                                    <td>EyJ0eXAiOiJKV1QiLCchbGciOsJIUzI1NiJ9.eyJ1IjoiNWYyOGM5ODRmMzU4NmM0MTI4NDRkMmIyIiwic3ViIjoiZGlhbmEyIiwiaWF0sjoxNTk2N
+                                                        TA4NjgxLCJleHAiOjE1OTcxMTM0ODEsImVtYSI6ImRpYW5hMkBob3RtYWlsLmNvbSJ9.Dd49vrweygUaA1jig8WgWMKcZ8XjLlnt3f-jXRcEBjc</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>Las key con <strong> * </strong> son <strong> obligatorias.</strong></p>
+                            <br>
+                            <hr>
+                            <h3 id="Registro" class="content-anchor"><strong style="color:rgb(255, 196, 0);">POST</strong> Registro</h3>
+                            <p>Para poder empezar a utilizar nuestra API primero necesitamos obtener nuestro  <strong>token</strong> de acceso y solamente necesitamos <strong> registrarnos</strong>.</p>
+                            <strong>url</strong>
+                            <div class="col-lg-6">
+                                <input class="form-control" value="https://hooli-card.herokuapp.com/api/signup" readonly>
+                            </div>
+                            <br>
+                            <div class="col-lg-8">
+                                <div class="card spur-card">
+                                    <div class="card-header"><div class="spur-card-title">Body</div></div>
+                                    <div class="card-body ">
+                                        <table class="table table-in-card">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">key</th>
+                                                    <th scope="col">value</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">email*</th>
+                                                    <td>test@hotmail.com</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">displayName*</th>
+                                                    <td>test</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">password*</th>
+                                                    <td>thisismypassword</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>Después de realizar el registro la API nos <strong> responderá </strong>  con nuestro <strong> token</strong>. <br>
+                            <p>Las key con <strong> * </strong> son <strong> obligatorias</strong>.</p>
+                            <strong> NOTA</strong>: Cuando te registras recibes una bonificación de 50US.</p>
+                            <hr>
+                            <h3 id="Login" class="content-anchor"><strong style="color:rgb(255, 196, 0);">POST</strong> Login </h3>
+                            <p>Los <strong> token expiran </strong> en un periodo de <strong>7 días</strong> por lo que si expira tu token o no lo anotaste puedes generar un nuevo token lo único que necesitas es <strong>iniciar sesion.</strong> </p>                            <strong>url</strong>
+                            <div class="col-lg-6">
+                                <input class="form-control" value="https://hooli-card.herokuapp.com/api/signin" readonly>
+                            </div>
+                            <br>
+                            <div class="col-lg-8">
+                                <div class="card spur-card">
+                                    <div class="card-header"><div class="spur-card-title">Body</div></div>
+                                    <div class="card-body ">
+                                        <table class="table table-in-card">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">key</th>
+                                                    <th scope="col">value</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">email*</th>
+                                                    <td>test@hotmail.com</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">password*</th>
+                                                    <td>thisismypassword</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>Si tus datos son correctos la API te <strong> responderá </strong>  con un nuevo <strong> token</strong> .</p>
+                            <p>Las key con <strong> * </strong> son <strong> obligatorias</strong> .</p>
+                            <hr>
+                            <h3 id="RegistroC" class="content-anchor"><strong style="color:rgb(255, 196, 0);">POST</strong> Registro carta</h3>
+                            <p>Si ya tenemos nuestro token ya podemos empezar a registrar nuestras cartas para poder venderlas.</p>
+                            <strong>url</strong>
+                            <div class="col-lg-6">
+                                <input class="form-control" value="https://hooli-card.herokuapp.com/api/registercard" readonly>
+                            </div>
+                            <br>
+                            <div class="col-lg-12">
+                                <div class="card spur-card">
+                                    <div class="card-header"><div class="spur-card-title">Header</div></div>
+                                    <div class="card-body ">
+                                        <table class="table table-in-card">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">key</th>
+                                                    <th scope="col">value</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">Authorization*</th>
+                                                    <td>EyJ0eXAiOiJKV1QiLCchbGciOsJIUzI1NiJ9.eyJ1IjoiNWYyOGM5ODRmMzU4NmM0MTI4NDRkMmIyIiwic3ViIjoiZGlhbmEyIiwiaWF0sjoxNTk2N
+                                                        TA4NjgxLCJleHAiOjE1OTcxMTM0ODEsImVtYSI6ImRpYW5hMkBob3RtYWlsLmNvbSJ9.Dd49vrweygUaA1jig8WgWMKcZ8XjLlnt3f-jXRcEBjc</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="card spur-card">
+                                    <div class="card-header"><div class="spur-card-title">Body</div></div>
+                                    <div class="card-body ">
+                                        <table class="table table-in-card">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">key</th>
+                                                    <th scope="col">value</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">name*</th>
+                                                    <td>mago oscuro</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">level</th>
+                                                    <td> solo acepta [0,1,2,3,4,5,6,7,8,9,10]</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">attribute</th>
+                                                    <td>solo acepta ['agua','fuego','luz','oscuridad','tierra','viento','divinidad']</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">status</th>
+                                                    <td>solo acepta ['active','inactive']</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">ilustration</th>
+                                                    <td>https://i.pinimg.com/originals/87/9b/65/879b658c47e52b4b643df8dbf527efc0.jpg</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">type</th>
+                                                    <td>solo acepta ['aqua','bestia','bestia alada','ciberso','demonio','dinosaurio','dragon','guerrero','guerrero bestia','hada','insecto','lanzador de conjuros','maquina','pez','planta','psiquico','piro','reptil','roca','serpiente marina','trueno','wyrm','zombi','bestia divina','dios creador']</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">attack</th>
+                                                    <td>2500</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">defense</th>
+                                                    <td>200</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">price*</th>
+                                                    <td>100</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>Los precios son en <strong>dolares americanos.</strong></p>
+                            <p>En caso de ser requerido, las keys que no son obligatorias pueden ser actualizadas posteriormente a su registro.</p>
+                            <p>Las key con <strong> * </strong> son <strong> obligatorias</strong> . <strong>NOTA:</strong> Para que tu carta sea <strong>visible</strong> para los usuarios tiene que tener un <strong>status de 'active'</strong> pero si no cumples con <strong>todos los datos</strong> no puedes publicar tu carta y por lo tanto <strong>no es posible venderla.</strong></p>
+                            <hr>
+                            <h3 id="Consulta" class="content-anchor"><strong style="color:rgb(43, 180, 9);">GET</strong> Consulta usuario</h3>
+                            <p>Si queremos ver las <strong> cartas</strong> que tiene un <strong>usuario</strong> en especifico podemos realizarlo con este método. Ya que este <strong>responderá</strong> con todas las cartas que tiene <strong>publicadas.</strong></p>
+                            <strong>url</strong>
+                            <div class="col-lg-6">
+                                <input class="form-control" value="https://hooli-card.herokuapp.com/api/usercards/test" readonly>
+                            </div>
+                            <br>
+                            <div class="col-lg-12">
+                                <div class="card spur-card">
+                                    <div class="card-header"><div class="spur-card-title">Header</div></div>
+                                    <div class="card-body ">
+                                        <table class="table table-in-card">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">key</th>
+                                                    <th scope="col">value</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">Authorization*</th>
+                                                    <td>EyJ0eXAiOiJKV1QiLCchbGciOsJIUzI1NiJ9.eyJ1IjoiNWYyOGM5ODRmMzU4NmM0MTI4NDRkMmIyIiwic3ViIjoiZGlhbmEyIiwiaWF0sjoxNTk2N
+                                                        TA4NjgxLCJleHAiOjE1OTcxMTM0ODEsImVtYSI6ImRpYW5hMkBob3RtYWlsLmNvbSJ9.Dd49vrweygUaA1jig8WgWMKcZ8XjLlnt3f-jXRcEBjc</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>El <strong>usuario</strong> lo tenemos que colocar despues del <strong> /usercards/</strong>.</p>
+                            <p>Las key con <strong> * </strong> son <strong> obligatorias</strong>.</p>
+                            <p><strong>NOTA:</strong> Por <strong>privacidad</strong> del usuario solamente se pueden ver las cartas que tienen el status de <strong>'active'</strong></p>
+                            <hr>
+                            <h3 id="Busqueda" class="content-anchor"><strong style="color:rgb(43, 180, 9);">GET</strong> Buscar cartas</h3>
+                            <p>Si queremos realizar una <strong> busqueda</strong> de alguna carta en <strong>especifico</strong> lo podemos hacer por este metodo ya que realiza la buscqueda en <strong>todas las cartas publicadas</strong> de todos los usuarios y podemos <strong>filtrar</strong> por <strong>nivel</strong> y <strong>tipo</strong></p>
+                            <strong>url</strong>
+                            <div class="col-lg-6">
+                                <input class="form-control" value="https://hooli-card.herokuapp.com/api/search" readonly>
+                            </div>
+                            <br>
+                            <div class="col-lg-12">
+                                <div class="card spur-card">
+                                    <div class="card-header"><div class="spur-card-title">Header</div></div>
+                                    <div class="card-body ">
+                                        <table class="table table-in-card">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">key</th>
+                                                    <th scope="col">value</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">Authorization*</th>
+                                                    <td>EyJ0eXAiOiJKV1QiLCchbGciOsJIUzI1NiJ9.eyJ1IjoiNWYyOGM5ODRmMzU4NmM0MTI4NDRkMmIyIiwic3ViIjoiZGlhbmEyIiwiaWF0sjoxNTk2N
+                                                        TA4NjgxLCJleHAiOjE1OTcxMTM0ODEsImVtYSI6ImRpYW5hMkBob3RtYWlsLmNvbSJ9.Dd49vrweygUaA1jig8WgWMKcZ8XjLlnt3f-jXRcEBjc</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="card spur-card">
+                                    <div class="card-header"><div class="spur-card-title">Body</div></div>
+                                    <div class="card-body ">
+                                        <table class="table table-in-card">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">key</th>
+                                                    <th scope="col">value</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">name*</th>
+                                                    <td>mago oscuro</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">type</th>
+                                                    <td>solo acepta ['aqua','bestia','bestia alada','ciberso','demonio','dinosaurio','dragon','guerrero','guerrero bestia','hada','insecto','lanzador de conjuros','maquina','pez','planta','psiquico','piro','reptil','roca','serpiente marina','trueno','wyrm','zombi','bestia divina','dios creador']</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">level</th>
+                                                    <td>solo acepta [0,1,2,3,4,5,6,7,8,9,10]</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>Las key con <strong> * </strong> son <strong> obligatorias</strong>.</p>
+                            <p>La búsqueda de nombre es por <strong> contenido</strong> por lo tanto podemos buscar un <strong>nombre</strong> en especifico, una <strong>letra</strong> o <strong>palabra</strong></p>
+                            <hr>
+                            <h3 id="Inventario" class="content-anchor"><strong style="color:rgb(43, 180, 9);">GET</strong> Inventario</h3>
+                            <p>Si queremos ver las cartas que tenemos en nuestra <strong> posecion</strong> podemos consultar nuestro <strong>inventario</strong> y visualizarlas.</p>
+                            <strong>url</strong>
+                            <div class="col-lg-6">
+                                <input class="form-control" value="https://hooli-card.herokuapp.com/api/inventory" readonly>
+                            </div>
+                            <br>
+                            <div class="col-lg-12">
+                                <div class="card spur-card">
+                                    <div class="card-header"><div class="spur-card-title">Header</div></div>
+                                    <div class="card-body ">
+                                        <table class="table table-in-card">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">key</th>
+                                                    <th scope="col">value</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">Authorization*</th>
+                                                    <td>EyJ0eXAiOiJKV1QiLCchbGciOsJIUzI1NiJ9.eyJ1IjoiNWYyOGM5ODRmMzU4NmM0MTI4NDRkMmIyIiwic3ViIjoiZGlhbmEyIiwiaWF0sjoxNTk2N
+                                                        TA4NjgxLCJleHAiOjE1OTcxMTM0ODEsImVtYSI6ImRpYW5hMkBob3RtYWlsLmNvbSJ9.Dd49vrweygUaA1jig8WgWMKcZ8XjLlnt3f-jXRcEBjc</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>Las key con <strong> * </strong> son <strong> obligatorias</strong>.</p>
+                            <hr>
+                            <h3 id="Compra" class="content-anchor"><strong style="color:rgb(255, 196, 0);">POST</strong> Compra</h3>
+                            <p>Si despues de realizar una busqueda encontramos una carta que nos guste podemos <strong> comprar</strong> esa carta para poder agregarla a nuestro <strong>inventario.</strong></p>
+                            <strong>url</strong>
+                            <div class="col-lg-6">
+                                <input class="form-control" value="https://hooli-card.herokuapp.com/api/buy/5f295218c77c130017bedf16" readonly>
+                            </div>
+                            <br>
+                            <div class="col-lg-12">
+                                <div class="card spur-card">
+                                    <div class="card-header"><div class="spur-card-title">Header</div></div>
+                                    <div class="card-body ">
+                                        <table class="table table-in-card">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">key</th>
+                                                    <th scope="col">value</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">Authorization*</th>
+                                                    <td>EyJ0eXAiOiJKV1QiLCchbGciOsJIUzI1NiJ9.eyJ1IjoiNWYyOGM5ODRmMzU4NmM0MTI4NDRkMmIyIiwic3ViIjoiZGlhbmEyIiwiaWF0sjoxNTk2N
+                                                        TA4NjgxLCJleHAiOjE1OTcxMTM0ODEsImVtYSI6ImRpYW5hMkBob3RtYWlsLmNvbSJ9.Dd49vrweygUaA1jig8WgWMKcZ8XjLlnt3f-jXRcEBjc</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>Las key con <strong> * </strong> son <strong> obligatorias</strong>.</p>
+                            <p>Recuerda revisar tu <strong> wallet</strong> para saber que tienes <strong>suficiente dinero</strong> por que en caso de no tenerlo <strong>no se procesara</strong> la compra.</p>
+                            <p>Para poder hacer la compra tienes que colocar el <strong>ID de la carta</strong> después del <strong>/buy/</strong>.</p>
+                            <p><strong>NOTA:</strong> Después de realizar una compra el <strong>status</strong> de la tarjeta se cambia automáticamente a <strong>inactive</strong>. Las cartas que tienen status de <strong>inactive no</strong> pueden ser compradas aun que tengan el ID de la carta.</p><hr>
+                            <h3 id="Compras" class="content-anchor"><strong style="color:rgb(43, 180, 9);">GET</strong> Historial de compras </h3>
+                            <p>Si realizamos la compra de una carta podemos ver un <strong> historial</strong> de todas esas <strong>compras</strong> que realizamos.</p>
+                            <strong>url</strong>
+                            <div class="col-lg-6">
+                                <input class="form-control" value="https://hooli-card.herokuapp.com/api/pursached" readonly>
+                            </div>
+                            <br>
+                            <div class="col-lg-12">
+                                <div class="card spur-card">
+                                    <div class="card-header"><div class="spur-card-title">Header</div></div>
+                                    <div class="card-body ">
+                                        <table class="table table-in-card">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">key</th>
+                                                    <th scope="col">value</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">Authorization*</th>
+                                                    <td>EyJ0eXAiOiJKV1QiLCchbGciOsJIUzI1NiJ9.eyJ1IjoiNWYyOGM5ODRmMzU4NmM0MTI4NDRkMmIyIiwic3ViIjoiZGlhbmEyIiwiaWF0sjoxNTk2N
+                                                        TA4NjgxLCJleHAiOjE1OTcxMTM0ODEsImVtYSI6ImRpYW5hMkBob3RtYWlsLmNvbSJ9.Dd49vrweygUaA1jig8WgWMKcZ8XjLlnt3f-jXRcEBjc</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>Las key con <strong> * </strong> son <strong> obligatorias</strong>.</p>
+                            <hr>
+                            <h3 id="Ventas" class="content-anchor"><strong style="color:rgb(43, 180, 9);">GET</strong> Historial de ventas</h3>
+                            <p>Si publicamos alguna carta y esta es vendida podemos ver el <strong> historial</strong> de todas esas <strong>ventas</strong> que se realizaron.</p>
+                            <strong>url</strong>
+                            <div class="col-lg-6">
+                                <input class="form-control" value="https://hooli-card.herokuapp.com/api/selled" readonly>
+                            </div>
+                            <br>
+                            <div class="col-lg-12">
+                                <div class="card spur-card">
+                                    <div class="card-header"><div class="spur-card-title">Header</div></div>
+                                    <div class="card-body ">
+                                        <table class="table table-in-card">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">key</th>
+                                                    <th scope="col">value</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">Authorization*</th>
+                                                    <td>EyJ0eXAiOiJKV1QiLCchbGciOsJIUzI1NiJ9.eyJ1IjoiNWYyOGM5ODRmMzU4NmM0MTI4NDRkMmIyIiwic3ViIjoiZGlhbmEyIiwiaWF0sjoxNTk2N
+                                                        TA4NjgxLCJleHAiOjE1OTcxMTM0ODEsImVtYSI6ImRpYW5hMkBob3RtYWlsLmNvbSJ9.Dd49vrweygUaA1jig8WgWMKcZ8XjLlnt3f-jXRcEBjc</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>Las key con <strong> * </strong> son <strong> obligatorias</strong>.</p>
+                            <hr>
+                            <h3 id="Transferencias" class="content-anchor"><strong style="color:rgb(255, 196, 0);">POST</strong> Transferencias </h3>
+                            <p>Si queremos realizar la compra de una tarjeta pero <strong> no</strong> tenemos dinero <strong>suficiente</strong> en nuestra <strong>wallet</strong> podemos hacer una <strong>transferencia</strong>.</p>
+                            <strong>url</strong>
+                            <div class="col-lg-6">
+                                <input class="form-control" value="https://hooli-card.herokuapp.com/api/transfer" readonly>
+                            </div>
+                            <br>
+                            <div class="col-lg-12">
+                                <div class="card spur-card">
+                                    <div class="card-header"><div class="spur-card-title">Header</div></div>
+                                    <div class="card-body ">
+                                        <table class="table table-in-card">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">key</th>
+                                                    <th scope="col">value</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">Authorization*</th>
+                                                    <td>EyJ0eXAiOiJKV1QiLCchbGciOsJIUzI1NiJ9.eyJ1IjoiNWYyOGM5ODRmMzU4NmM0MTI4NDRkMmIyIiwic3ViIjoiZGlhbmEyIiwiaWF0sjoxNTk2N
+                                                        TA4NjgxLCJleHAiOjE1OTcxMTM0ODEsImVtYSI6ImRpYW5hMkBob3RtYWlsLmNvbSJ9.Dd49vrweygUaA1jig8WgWMKcZ8XjLlnt3f-jXRcEBjc</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="card spur-card">
+                                    <div class="card-header"><div class="spur-card-title">Body</div></div>
+                                    <div class="card-body ">
+                                        <table class="table table-in-card">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">key</th>
+                                                    <th scope="col">value</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">type*</th>
+                                                    <td>paypal</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">amount*</th>
+                                                    <td>100</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>Las key con <strong> * </strong> son <strong> obligatorias</strong>.</p>
+                            <p>Por el <strong> momento</strong> solo se pueden hacer por medio de <strong>paypal</strong></p>
+                            <hr>
+                            <h3 id="Datos" class="content-anchor"><strong style="color:rgb(43, 180, 9);">GET</strong> Mis datos</h3>
+                            <p>Si queremos <strong> consultar</strong> nuestros datos como <strong>correo, usuario , id y wallet</strong> podemos usar este metodo.</p>
+                            <strong>url</strong>
+                            <div class="col-lg-6">
+                                <input class="form-control" value="https://hooli-card.herokuapp.com/api/mydata" readonly>
+                            </div>
+                            <br>
+                            <div class="col-lg-12">
+                                <div class="card spur-card">
+                                    <div class="card-header"><div class="spur-card-title">Header</div></div>
+                                    <div class="card-body ">
+                                        <table class="table table-in-card">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">key</th>
+                                                    <th scope="col">value</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">Authorization*</th>
+                                                    <td>EyJ0eXAiOiJKV1QiLCchbGciOsJIUzI1NiJ9.eyJ1IjoiNWYyOGM5ODRmMzU4NmM0MTI4NDRkMmIyIiwic3ViIjoiZGlhbmEyIiwiaWF0sjoxNTk2N
+                                                        TA4NjgxLCJleHAiOjE1OTcxMTM0ODEsImVtYSI6ImRpYW5hMkBob3RtYWlsLmNvbSJ9.Dd49vrweygUaA1jig8WgWMKcZ8XjLlnt3f-jXRcEBjc</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>Las key con <strong> * </strong> son <strong> obligatorias</strong>.</p>
+                            <hr>
+                            <h3 id="Actualizar" class="content-anchor"><strong style="color:rgb(9, 64, 247);">PUT</strong> Actualizar datos</h3>
+                            <p>Si al momento de registrar la carta colocamos un dato erróneo, nos falto colocarlo o queremos cambiar precio o status podemos hacerlo.</p>
+                            <strong>url</strong>
+                            <div class="col-lg-6">
+                                <input class="form-control" value="https://hooli-card.herokuapp.com/api/update/5f2954d6c77c130017bedf1f" readonly>
+                            </div>
+                            <br>
+                            <div class="col-lg-12">
+                                <div class="card spur-card">
+                                    <div class="card-header"><div class="spur-card-title">Header</div></div>
+                                    <div class="card-body ">
+                                        <table class="table table-in-card">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">key</th>
+                                                    <th scope="col">value</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">Authorization*</th>
+                                                    <td>EyJ0eXAiOiJKV1QiLCchbGciOsJIUzI1NiJ9.eyJ1IjoiNWYyOGM5ODRmMzU4NmM0MTI4NDRkMmIyIiwic3ViIjoiZGlhbmEyIiwiaWF0sjoxNTk2N
+                                                        TA4NjgxLCJleHAiOjE1OTcxMTM0ODEsImVtYSI6ImRpYW5hMkBob3RtYWlsLmNvbSJ9.Dd49vrweygUaA1jig8WgWMKcZ8XjLlnt3f-jXRcEBjc</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="card spur-card">
+                                    <div class="card-header"><div class="spur-card-title">Body</div></div>
+                                    <div class="card-body ">
+                                        <table class="table table-in-card">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">key</th>
+                                                    <th scope="col">value</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">name</th>
+                                                    <td>mago oscuro</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">level</th>
+                                                    <td> solo acepta [0,1,2,3,4,5,6,7,8,9,10]</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">attribute</th>
+                                                    <td>solo acepta ['agua','fuego','luz','oscuridad','tierra','viento','divinidad']</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">status</th>
+                                                    <td>solo acepta ['active','inactive']</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">ilustration</th>
+                                                    <td>https://i.pinimg.com/originals/87/9b/65/879b658c47e52b4b643df8dbf527efc0.jpg</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">type</th>
+                                                    <td>solo acepta ['aqua','bestia','bestia alada','ciberso','demonio','dinosaurio','dragon','guerrero','guerrero bestia','hada','insecto','lanzador de conjuros','maquina','pez','planta','psiquico','piro','reptil','roca','serpiente marina','trueno','wyrm','zombi','bestia divina','dios creador']</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">attack</th>
+                                                    <td>2500</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">defense</th>
+                                                    <td>200</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">price</th>
+                                                    <td>100</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>Las key con <strong> * </strong> son <strong> obligatorias</strong>.</p>
+                            <p><strong> NO</strong> es necesario colocar <strong>todas</strong> las key, se puede actualizar solamente <strong>un solo dato</strong> si es requerido.</p>
+                            <p><strong>NO</strong> se puede actualizar cartas que no son <strong>tuyas</strong>.</p>
+                            <p><strong>NO</strong> se puede colocar el status en <strong>'active'</strong> si no se tienen <strong>todas</strong> las key con un <strong>valor</strong>.</p>
+                            <p>NOTA: <strong>No</strong> se puede actualizar keys como <strong>ID, owner y ownerID</strong>.</p>
+                            <hr>
+                            <h3 id="Eliminar" class="content-anchor"><strong style="color:rgb(247, 9, 9);">DELETE</strong> Eliminar carta</a></h3>
+                            <p>En caso de querer <strong> retirar</strong> una tarjeta de Hooli se puede realizar por este metodo.</p>
+                            <strong>url</strong>
+                            <div class="col-lg-6">
+                                <input class="form-control" value="https://hooli-card.herokuapp.com/api/delete/5f29516dc77c130017bedf13" readonly>
+                            </div>
+                            <br>
+                            <div class="col-lg-12">
+                                <div class="card spur-card">
+                                    <div class="card-header"><div class="spur-card-title">Header</div></div>
+                                    <div class="card-body ">
+                                        <table class="table table-in-card">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">key</th>
+                                                    <th scope="col">value</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">Authorization*</th>
+                                                    <td>EyJ0eXAiOiJKV1QiLCchbGciOsJIUzI1NiJ9.eyJ1IjoiNWYyOGM5ODRmMzU4NmM0MTI4NDRkMmIyIiwic3ViIjoiZGlhbmEyIiwiaWF0sjoxNTk2N
+                                                        TA4NjgxLCJleHAiOjE1OTcxMTM0ODEsImVtYSI6ImRpYW5hMkBob3RtYWlsLmNvbSJ9.Dd49vrweygUaA1jig8WgWMKcZ8XjLlnt3f-jXRcEBjc</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="card spur-card">
+                                    <div class="card-header"><div class="spur-card-title">Body</div></div>
+                                    <div class="card-body ">
+                                        <table class="table table-in-card">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">key</th>
+                                                    <th scope="col">value</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">validate*</th>
+                                                    <td>test</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>Las key con <strong> * </strong> son <strong> obligatorias</strong>.</p>
+                            <p>No se puede eliminar cartas de <strong>otros usuarios.</strong> </p>
+                            <p><strong> NOTA:</strong> Para poder eliminar la carta tenemos que enviar por <strong>body</strong> la key <strong>'validate'</strong> y como valor nuestro nombre de <strong>usuario</strong>. En caso contrario <strong>no se eliminara</strong> la carta.</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="js/spur.js"></script>
+</body>
+</html>
